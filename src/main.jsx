@@ -11,11 +11,16 @@ import About from './Components/About/About.jsx';
 import Contact from './Components/Contact/Contact.jsx';
 import Footer from './Components/Footer/Footer.jsx';
 import Users from './Components/Users/Users.jsx';
+import UserInfo from './Components/UserInfo/UserInfo.jsx';
+import Error from './Components/Error/Error.jsx';
+
+
 
 const router = createBrowserRouter([
   {
     path: '/',
     element:<Home></Home>,
+    errorElement:<Error></Error>,
     children:[
       {
         path:'/about',
@@ -33,6 +38,11 @@ const router = createBrowserRouter([
       {
         path:'/footer',
         element:<Footer></Footer>
+      },
+      {
+        path:'/userInfo/:userId',
+        loader: ({params}) => fetch(`https://jsonplaceholder.typicode.com/users/${params.userId}`),
+        element:<UserInfo></UserInfo>
       }
     ]
   },

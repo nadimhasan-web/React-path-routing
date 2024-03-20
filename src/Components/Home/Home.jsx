@@ -7,7 +7,6 @@ const Home = () => {
         <div>
             <Header></Header>
             <h2>Home</h2>
-            
             <Outlet></Outlet>
             <Footer></Footer>
         </div>
